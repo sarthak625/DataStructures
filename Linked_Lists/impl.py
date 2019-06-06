@@ -37,6 +37,60 @@ class LinkedList:
         self.head.prev = node
         self.head = node
 
+    # Add value after a certain node
+    def addAfter(self,value,newValue):
+        node = Node(newValue)
+        head = self.head
+        # Iterate till you reach the node
+        while head != None:
+            if (head.data == value):
+                # If its the last node, add as it is
+                if head.next == None:
+                    head.next = node
+                    node.prev = head
+                    break
+                # Else add prev to the node after the searched node
+                else:
+                    head.next.prev = node
+                    node.next = head.next
+                    head.next = node
+                    node.prev = head
+                    break
+            head = head.next
+    
+    #Add value before a certain node
+    def addBefore(self,value,newValue):
+        node = Node(newValue)
+        head = self.head
+        # Iterate till you reach the node
+        while head != None:
+            if (head.data == value):
+                # If its the head node, make this node the head node
+                if head == self.head:
+                    # this
+                    self.head.prev = node
+                    node.next = self.head
+                    self.head = node
+                    # or this
+                    # addHead(self, newValue)
+                    break
+                # Else add value to the node before the searched node
+                else:
+                    head.prev.next = node
+                    node.prev = head.prev
+                    node.next = head
+                    head.prev = node
+                    break
+            head = head.next
+
+    def getLength(self):
+        count = 0
+        head = self.head
+        while head != None:
+            count += 1
+            head = head.next
+        return count
+
     # Print all the elements of the linked list
     def printAll(self):
         head = self.head
@@ -55,4 +109,3 @@ class LinkedList:
         while current != None:
             print(current.data)
             current = current.prev
-
