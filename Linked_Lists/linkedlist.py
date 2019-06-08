@@ -111,3 +111,4 @@ class LinkedList:
         while current != None:
             print(current.data)
             current = current.prev
+

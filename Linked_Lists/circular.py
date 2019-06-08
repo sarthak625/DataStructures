@@ -129,3 +129,12 @@ class LinkedList:
             current = current.prev
         print(current.data)
 
+# Function to check if a linked list is circular
+def check(linkedlist):
+    head = linkedlist.head
+    while head.next != linkedlist.head:
+        if head.next == None:
+            return False
+        head = head.next
+    
+    return True
