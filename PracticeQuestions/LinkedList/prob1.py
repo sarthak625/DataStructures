@@ -1,3 +1,5 @@
+# https://www.geeksforgeeks.org/write-a-c-function-to-print-the-middle-of-the-linked-list/
+
 import sys
 sys.path.append('/home/sarthak/code/DataStructures/Linked_Lists')
 from linkedlist import LinkedList
@@ -19,8 +21,8 @@ def middle(ll):
         mid = mid.next
         head = head.next.next
     
-    return mid.data
+    return mid
 
 ll.printAll()
 print("=============")
-print middle(ll)
+print middle(ll).data
